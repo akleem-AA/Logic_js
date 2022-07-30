@@ -1,4 +1,4 @@
-//Reverese given number by using function question 1234 and expacted output 4321
+// Problem-2 Reverese given number by using function question 1234 and expacted output 4321
 
 function rNum(data){
 let r    
