@@ -7,6 +7,8 @@ let data =[
 let arr1 =[
     {name:"oodles",price:30,image:'http://google.com',id:1},
 ]
+
+//add defoult status
 addStatus(data)
 function addStatus(data){
  let arr =[...data]
