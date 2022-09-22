@@ -1,36 +1,41 @@
-let data =[
-    {name:"oodles",price:30,image:'http://google.com',id:1},
-      {name:"os",price:10,image:'http://google.com',id:2},
-        {name:"andrids",price:50,image:'http://google.com',id:3},
-          {name:"abx",price:3340,image:'http://google.com',id:4},
-]
-let arr1 =[
-    {name:"oodles",price:30,image:'http://google.com',id:1},
-]
+const [findFriends, setFindFriends] = useState([]);
+  const [loadingStatus, setLoadingStatus] = useState(false);
 
-//add defoult status
-addStatus(data)
-function addStatus(data){
- let arr =[...data]
-    // console.log(arr)
-    arr.map((item)=>{
-        item.addStatus ="false"
-    })
-}
+  useEffect(() => {
+    getFriendData();
+  }, []);
 
-changeStatus(arr1)
-function changeStatus(finds){
-     console.log(finds)
-    let arr = [...data]
-    arr.map((item)=>{
-        console.log(item.id)
-       finds.map((itm)=>{
-           if(item.id ==itm.id){
-               console.log("condition true")
-               item.addStatus = "true"
-           }
-       })
-    console.log("not match")
-    })
-    console.log('change status',arr)
-}
+//getting all data.
+  const getFriendData = () => {
+    setLoadingStatus(true);
+    Api.get('findfriends', {
+      userid: userData.auth.userid,
+      limit: "all",
+    }).then(res => {
+      if (res) {
+        setLoadingStatus(false);
+        let arr = [...res.users];
+        arr.map(item => {
+          item.add_frend_status = false;
+        });
+        setFindFriends(arr);
+      }
+    });
+  };
+
+//change the color after click any button call the function .
+  const addPeopleAction = id => () => {
+    Api.get('friend/add', { userid: userData.auth.userid, to_userid: id }).then(
+      res => {
+        if (res.status) {
+          let arr = [...findFriends];
+          arr.map(item => {
+            if (item.id == id) {
+              item.add_frend_status = !item.add_frend_status;
+            }
+          });
+          setFindFriends(arr);
+        }
+      },
+    );
+  };
