@@ -11,3 +11,20 @@ let result = 0;
     console.log(result)
 }
 rNum(1234)//output 4321
+
+
+
+//STEP:-2 to resole it by using simple split reverse and join method
+function reverseNumber(num) {
+  const reversedNum = parseInt(num.toString().split('').reverse().join(''));
+  console.log(reversedNum);
+}
+
+reverseNumber(1234); // Output: 4321
+
+// ``` In this version, we convert the number to a string using num.toString().
+// Then, we split the string into an array of individual characters using .split('').
+// After that, we reverse the array using .reverse(). Finally,
+// we join the reversed array back into a string and convert it back to a number using parseInt().
+// This gives us the reversed number, which is then logged to the console.
+```
