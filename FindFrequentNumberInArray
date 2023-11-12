@@ -1,0 +1,30 @@
+// quetion how many item is reapeat one charecter (sabse jayda konsa item repeat hua he)
+//arr =[1,2,3,4,5,6,2,3,2,2] //ouput 2 =4 
+
+let arr =[1,2,4,1,4,3,4];
+
+function checkRepeatItem(){
+    let obj = {}
+    let final =''
+    for(let i = 0;i<arr.length;i++){
+        if(obj.hasOwnProperty(arr[i])){
+            obj[arr[i]] ++
+        }else{
+            obj[arr[i]] =1
+        }
+    }
+    console.log(obj)
+    let count = 0;
+    for(let i in obj){
+        if(obj[i]>count){
+            count = obj[i]
+            final = i
+        }
+    }
+    console.log(final,"=",count) //ouptu 2=4
+    
+    
+    
+}
+
+checkRepeatItem()
