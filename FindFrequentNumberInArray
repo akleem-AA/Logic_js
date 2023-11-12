@@ -21,7 +21,7 @@ function checkRepeatItem(){
             final = i
         }
     }
-    console.log(final,"=",count) //ouptu 2=4
+    console.log(final,"=",count) //ouptu 2 = 4
     
     
     
