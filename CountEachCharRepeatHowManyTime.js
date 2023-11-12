@@ -1,6 +1,6 @@
 //count the each charecter how many time occure .
 // by using loop , reduce etc
-//apple = a=1,p=2,l=1,e=1
+// input apple ,output= a=1,p=2,l=1,e=1
 
 //we need to make a object 
 //we need to split string for iterable 
